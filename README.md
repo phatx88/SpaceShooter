@@ -1,5 +1,6 @@
 Unity 2D SpaceShoot Project, features:
-1) Cho phép người chơi điều khiển máy bay sử dụng các phím mũi tên trên bàn phím hoặc đầu vào cảm ứng (cho thiết bị di động). (xử dụng Input Manager - 'Vertical' và "Horizontal" để nhận input từ mobile hoặc joystick)
+1) Cho phép người chơi điều khiển PlayerShip:<img src="https://github.com/phatx88/SpaceShooter/assets/66936482/e2af413e-2008-4282-a599-eb1f031ec8b8"  width="20" /> 
+  sử dụng các phím mũi tên trên bàn phím hoặc đầu vào cảm ứng (cho thiết bị di động). (xử dụng Input Manager - 'Vertical' và "Horizontal" để nhận input từ mobile hoặc joystick)
 2) Triển khai việc di chuyển mượt mà của máy bay trên màn hình, cho phép người chơi điều hướng qua môi trường trò chơi:
    - Cho phép máy di chuyển lên xuống (vertical) và xoay đầu (Horizontal).
    - Camera sẽ chạy theo PlayerShip. 
