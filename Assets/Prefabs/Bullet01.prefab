@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7267797397543749153}
   m_Layer: 8
   m_Name: Bullet01
-  m_TagString: Untagged
+  m_TagString: BlueLaser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8064fbce4d842504b9d62faea171eba1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 8
 --- !u!114 &7267797397543749153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,3 +175,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897d65ded195aa8479f0f8a9a25d9b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 5

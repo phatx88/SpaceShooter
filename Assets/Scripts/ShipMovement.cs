@@ -7,42 +7,35 @@ public class ShipMovement : MonoBehaviour
     public float maxSpeed = 5f;
     public float rotSpeed = 1f;
 
+
+    //Add Audio
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     //float shipBoundaryRadius = 0.5f;
     void Start()
     {
-        
+
     }
 
     void Update()
-    {
-        #region ROTATE the Ship
-        //Assign rotation quaternion
-        Quaternion rot = transform.rotation;
+    {   
+        //Rotate the Ship Horizontally
+        Quaternion rot = RotateShip();
 
-        //Assign the Z euler angle
-        float z = rot.eulerAngles.z;
+        //Move Ship vertically
+        MoveShip(rot);
 
-        //Change the Z angle based on input
-        z += -Input.GetAxis("Horizontal") * rotSpeed + Time.deltaTime;
-
-        //Initiate z change in the quaternion
-        rot = Quaternion.Euler(0,0,z);
-
-        //transform rotation
-        transform.rotation = rot;
-        #endregion
-
-
-        #region MOVE the Ship
-        //Use Vertical as in Input manager to get value up and down from variety of device such as mobile and joystick
-        Vector3 pos = transform.position;
-
-        Vector3 velocity = new Vector3(0, Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime,0);
-
-        pos += rot * velocity;
-
-        //transform.position = pos;
-        #endregion
+        //Flip Ship to dogfight
+        // Check if the space key is pressed to flip the ship
+        if (Input.GetButtonDown("Jump"))
+        {
+            StartCoroutine(FlipShip());
+            audioManager.PlaySFX(audioManager.flipShip); //Add Flip sound
+        }
 
 
         #region RESTRICT PLAYER BOUNDARY 
@@ -72,8 +65,98 @@ public class ShipMovement : MonoBehaviour
         //{
         //    pos.x = -widtOrtho + shipBoundaryRadius;
         //}
+        //transform.position = pos;
         #endregion
 
-        transform.position = pos;
+
     }
+
+    public Quaternion RotateShip()
+    {
+        #region ROTATE the Ship
+        //Assign rotation quaternion
+        Quaternion rot = transform.rotation;
+
+        //Assign the Z euler angle
+        float z = rot.eulerAngles.z;
+
+        //Change the Z angle based on input
+        z -= Input.GetAxis("Horizontal") * rotSpeed + Time.deltaTime;
+
+        //Initiate z change in the quaternion
+        rot = Quaternion.Euler(0, 0, z);
+
+        //transform rotation
+        transform.rotation = rot;
+        #endregion
+        return rot;
+    }
+
+    public void MoveShip(Quaternion rot)
+    {
+        #region MOVE the Ship
+        //Use Vertical as in Input manager to get value up and down from variety of device such as mobile and joystick
+        Vector3 pos = transform.position;
+
+        Vector3 velocity = new Vector3(0, Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime, 0);
+
+        pos += rot * velocity;
+
+        transform.position = pos;
+
+        #endregion
+    }
+
+    #region ADDING Flip Ability
+    //private void FlipShip()
+    //{
+    //    // Add 180 degrees to the current rotation on the Z-axis
+    //    Quaternion rot = transform.rotation;
+    //    float z = rot.eulerAngles.z + 180f;
+    //    rot = Quaternion.Euler(0, 0, z);
+    //    transform.rotation = rot;
+    //}
+    
+    private IEnumerator FlipShip()
+    {
+        // Get the current rotation and scale of the ship
+        float startAngle = transform.rotation.eulerAngles.z;
+        float endAngle = startAngle + 180f; // Target angle after flipping
+
+        float duration = 0.5f; // Total time to complete the flip
+        float time = 0;
+
+        Vector3 startScale = transform.localScale; // Assuming the ship starts at normal scale
+        Vector3 minScale = new Vector3(startScale.x, 0, startScale.z); // Scale down to 0 on the y-axis
+
+        while (time < duration)
+        {
+            // Interpolate the rotation angle over time
+            float angle = Mathf.Lerp(startAngle, endAngle, time / duration);
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            // Interpolate the scale
+            if (time <= duration / 2)
+            {
+                // Scale down to zero in the first half of the animation
+                transform.localScale = Vector3.Lerp(startScale, minScale, (time / (duration / 2)));
+            }
+            else
+            {
+                // Scale back to original scale in the second half of the animation
+                transform.localScale = Vector3.Lerp(minScale, startScale, ((time - (duration / 2)) / (duration / 2)));
+            }
+
+            // Increment the time elapsed
+            time += Time.deltaTime;
+            yield return null; // Wait until the next frame
+        }
+
+        // Ensure the rotation and scale are exactly as intended at the end
+        transform.rotation = Quaternion.Euler(0, 0, endAngle);
+        transform.localScale = startScale;
+        
+    }
+
+    #endregion
 }

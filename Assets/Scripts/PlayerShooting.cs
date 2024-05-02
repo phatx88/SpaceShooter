@@ -13,6 +13,13 @@ public class PlayerShooting : MonoBehaviour
     public float fireDelay = 0.25f;
     float cooldownTimer = 0;
 
+    //Add Audio
+    AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void Start()
     {
         bulletLayer = gameObject.layer;
@@ -32,6 +39,7 @@ public class PlayerShooting : MonoBehaviour
 
             //Set bullet to same layer with GameObject that it's applying to
             GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, transform.position + offset, transform.rotation);
+            audioManager.PlaySFX(audioManager.laserFire_01); //add fire sound
             bulletGO.layer = bulletLayer;
         }
     }

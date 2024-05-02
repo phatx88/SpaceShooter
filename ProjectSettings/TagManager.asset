@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - BlueLaser
+  - RedLaser
+  - Audio
+  - HealthBar
   layers:
   - Default
   - TransparentFX

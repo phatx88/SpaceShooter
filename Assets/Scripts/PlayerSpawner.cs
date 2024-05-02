@@ -7,7 +7,7 @@ public class PlayerSpawner : MonoBehaviour
     public GameObject playerPrefab;
     GameObject playerInstance;
 
-    public int numLives = 4;
+    public int numLives = 5;
 
     float respawnTimer;
     // Start is called before the first frame update
