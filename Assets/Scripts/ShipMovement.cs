@@ -6,13 +6,19 @@ public class ShipMovement : MonoBehaviour
 {
     public float maxSpeed = 5f;
     public float rotSpeed = 1f;
+    public float flipCooldown = 2f; // Cooldown in seconds between flips
 
+    private float lastFlipTime = -Mathf.Infinity; // Track the last time the ship flipped
 
     //Add Audio
     AudioManager audioManager;
+
+    //Add Invulnerability to flip 
+    DamageController damageController;
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        damageController = GameObject.FindGameObjectWithTag("Player").GetComponent<DamageController>();
     }
 
     //float shipBoundaryRadius = 0.5f;
@@ -31,9 +37,11 @@ public class ShipMovement : MonoBehaviour
 
         //Flip Ship to dogfight
         // Check if the space key is pressed to flip the ship
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && Time.time >= lastFlipTime + flipCooldown)
         {
             StartCoroutine(FlipShip());
+            lastFlipTime = Time.time; // Update the last flip time
+            damageController.TriggerInvulnerability(false, 1f); //Set false to avoid reduce Health
             audioManager.PlaySFX(audioManager.flipShip); //Add Flip sound
         }
 
@@ -123,7 +131,7 @@ public class ShipMovement : MonoBehaviour
         float startAngle = transform.rotation.eulerAngles.z;
         float endAngle = startAngle + 180f; // Target angle after flipping
 
-        float duration = 0.5f; // Total time to complete the flip
+        float duration = .5f; // Total time to complete the flip
         float time = 0;
 
         Vector3 startScale = transform.localScale; // Assuming the ship starts at normal scale

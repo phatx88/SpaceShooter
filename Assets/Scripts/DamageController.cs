@@ -9,6 +9,7 @@ public class DamageController : MonoBehaviour
 
     public float invulnPeriod = 0;
     public float maxPlayerInvulPeriod = 3;
+
     //set Invulnabiliy Time;
     float invulnTimer = 0;
     int correctLayer;
@@ -20,10 +21,14 @@ public class DamageController : MonoBehaviour
 
     //Add-update HealthBar UI
     HealthBar healthBar;
+
+    //Add ScoreManager
+    ScoreManager scoreManager;
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
+        scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
     }
 
     void Start()
@@ -59,63 +64,41 @@ public class DamageController : MonoBehaviour
     {
         Debug.Log("Trigger!");
 
-        //Add so that Player become temporary invulnerable upon collision 
-        if(invulnTimer <= 0)
-        {
-            health--; //Take damage if with out Invulnaripity period
-
-            if (gameObject.tag == "Player")
-            {
-                healthBar.SetHealth(health); // Show Reduced HealthBar
-              
-            }
-
-            invulnTimer = invulnPeriod; //Reset Invulnaripity period
-
-            gameObject.layer = 10; //change back to normal layer
-        }
+        #region Trigger Invulnebility
+        TriggerInvulnerability(true, maxPlayerInvulPeriod);
+        #endregion
 
     }
 
     void Update()
     {
-        if(invulnTimer > 0)
-        {
-            invulnTimer -= Time.deltaTime;
-
-            if (invulnTimer <= 0)
-            {
-                //Add Invulnerable by shifting layer to Invulnerable aboid all collision
-                gameObject.layer = correctLayer;
-
-                //Adding Visual Effect of Invulnerability
-                //Turn on when Invul time is up
-                if (spriteRend != null)
-                {
-                    spriteRend.enabled = true;
-                }
-            }
-            else
-            {
-                //Turn on/off spriteRender for Visual Effect of Invulnerability
-                //Turn on when Invul time is up
-                if (spriteRend != null)
-                {
-                    spriteRend.enabled = !spriteRend.enabled; //Turn On/Off sprite renderer on everyframe (Update)
-                }
-            }
-                   
-        }
+        //Update Invulnerability and reset
+        HandleInvulnerability();
             
-        
-
        //Destroy gameobject if its health go to 0
-
         if (health <= 0)
         {
+            //Play Sound When Targets Health less than equal to zero
             if (gameObject.tag == "Player" || gameObject.tag == "Enemy")
             {
                 audioManager.PlaySFX(audioManager.death);
+            }
+
+            //Add case to score 
+            switch (gameObject.tag)
+            {
+                case "Enemy":
+                    scoreManager.scoreIncreasement(10);
+                    break;
+                //case "Strong Enemy":
+                //    scoreManager.scoreIncreasement(20);
+                //    break;
+                //case "Asteroid":
+                //    scoreManager.scoreIncreasement(5);
+                //    break;
+                default:
+                    // Optional: Handle unexpected tags or do nothing
+                    break;
             }
             Die();
         }
@@ -125,4 +108,44 @@ public class DamageController : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    #region Trigger & Handle Invulnerability
+    public void TriggerInvulnerability(bool takeDamaged, float maxTimer)
+    {
+        //Add so that Player become temporary invulnerable upon collision 
+        if (invulnTimer <= 0)
+        {
+            if (takeDamaged)
+            {
+            health--; //Take damage if with out Invulnaripity period
+
+                if (gameObject.tag == "Player")
+                {
+                healthBar.SetHealth(health); // Show Reduced HealthBar
+                }
+            }
+
+            invulnTimer = maxTimer; //call timer for invulnable 
+
+            gameObject.layer = 10; //change to invulnable 
+        }
+    }
+    public void HandleInvulnerability()
+    {
+        if (invulnTimer > 0)
+        {
+            invulnTimer -= Time.deltaTime;
+
+            if (invulnTimer <= 0)
+            {
+                gameObject.layer = correctLayer; // Restore original layer
+                spriteRend.enabled = true; // Make sure sprite is visible when not invulnerable
+            }
+            else
+            {
+                spriteRend.enabled = !spriteRend.enabled; // Blink effect for invulnerability
+            }
+        }
+    }
+    #endregion
 }

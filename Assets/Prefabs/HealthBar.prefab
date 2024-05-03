@@ -115,8 +115,8 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 29491
-    ctime1: 49151
+    ctime0: 21627
+    ctime1: 43253
     ctime2: 65535
     ctime3: 0
     ctime4: 0
@@ -246,8 +246,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.1654053, y: 0.00044822693}
-  m_SizeDelta: {x: -4.3308, y: -7.1916}
+  m_AnchoredPosition: {x: 35.25, y: -0.0000009536743}
+  m_SizeDelta: {x: 61.839, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8815627286563333035
 CanvasRenderer:

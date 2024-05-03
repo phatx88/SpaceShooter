@@ -9,6 +9,12 @@ TagManager:
   - RedLaser
   - Audio
   - HealthBar
+  - ScoreManager
+  - ScoreText
+  - ScorePanel
+  - GUI
+  - TimeText
+  - GameOverPanel
   layers:
   - Default
   - TransparentFX
