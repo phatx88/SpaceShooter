@@ -218,7 +218,7 @@ TextureImporter:
         width: 90
         height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,6 +226,258 @@ TextureImporter:
       bones: []
       spriteID: f9f6a2f4b5aec354595c34b577073232
       internalID: 1778531694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Meteor_01
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 477
+        width: 100
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62513f63cfaa4af4181183c2115ef2a8
+      internalID: -1301213186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Meteor_02
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 533
+        width: 45
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e483520d68f340f4d9c48adae240079b
+      internalID: -1976420889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: swarm_01
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 7
+        width: 36
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3cefec34e244144781081148c470ca8
+      internalID: 1892236685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_02
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 213
+        width: 93
+        height: 83
+      alignment: 9
+      pivot: {x: 0.49999967, y: 0.3346427}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11483d7b21e0f4045b4aacbee2c35f8c
+      internalID: 1990485392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_03
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 337
+        width: 102
+        height: 82
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26410246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0917ddb3154bf14482c71f8e07a2d58
+      internalID: 1680564422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_04
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 792
+        width: 97
+        height: 82
+      alignment: 9
+      pivot: {x: 0.5, y: 0.23281562}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46d32aa6dd833843bb79d4d1481ea1e
+      internalID: -1023060938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Power_up_01
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 14
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16840807b7dbf94ab34be746051d763
+      internalID: -731822563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Power_up_02
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 2
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37214538ddfded6459ff183a2b4726b9
+      internalID: 675819673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Power_up_03
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 852
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d3959af1eaf084ba782e559ae1d83d
+      internalID: 1296007255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_05
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 785
+        width: 100
+        height: 82
+      alignment: 9
+      pivot: {x: 0.5, y: 0.19399226}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d110ed03a2f787f4ca6f71dfd57f52b1
+      internalID: -1375191038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwarmSpawner
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 700
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c940d83801f2d2f48ae79f0cf2ff8ab8
+      internalID: -1012505029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_03
+      rect:
+        serializedVersion: 2
+        x: 858
+        y: 988
+        width: 9
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b514a4efbc71f1f4ea33e698d344d44c
+      internalID: -390235553
       vertices: []
       indices: 
       edges: []
@@ -243,10 +495,21 @@ TextureImporter:
     nameFileIdTable:
       Bullet_01: -2023724924
       Bullet_02: 1687341211
+      Bullet_03: -390235553
       EnemyShip_01: -2121328532
+      Enemy_02: 1990485392
+      Enemy_03: 1680564422
+      Enemy_04: -1023060938
+      Enemy_05: 910883810
+      Meteor_01: -1301213186
+      Meteor_02: -1976420889
       PlayerShip: -1526636341
+      Power_up_01: -731822563
+      Power_up_02: 675819673
+      Power_up_03: 1296007255
       SpawnSpot_Blue: -967071943
       SpawnSpot_Red: 1778531694
+      SwarmSpawner: -1012505029
       sheet_1: -569452375
       sheet_10: -1585598884
       sheet_11: 872127627
@@ -264,6 +527,7 @@ TextureImporter:
       sheet_7: -864220144
       sheet_8: 864203774
       sheet_9: -647509681
+      swarm_01: 1892236685
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

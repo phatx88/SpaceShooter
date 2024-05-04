@@ -3,19 +3,18 @@ using UnityEngine;
 public class SingletonPersistent<T> : MonoBehaviour where T : Component
 {
     private static T _instance;
-
     public static T Instance
     {
         get
         {
             if (_instance == null)
             {
-                // Optionally add logic to find existing instance in the scene if needed
                 _instance = FindObjectOfType<T>();
                 if (_instance == null)
                 {
-                    GameObject newObj = new GameObject();
+                    GameObject newObj = new GameObject(typeof(T).Name);
                     _instance = newObj.AddComponent<T>();
+                    DontDestroyOnLoad(newObj);
                 }
             }
             return _instance;

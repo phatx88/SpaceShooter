@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4540403096062637440}
   - component: {fileID: 7809434962875437055}
   - component: {fileID: 7267797397543749153}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Bullet02
   m_TagString: RedLaser
   m_Icon: {fileID: 0}

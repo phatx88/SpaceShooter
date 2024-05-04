@@ -3,38 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : SingletonPersistent<MainMenu>
+public class MainMenu : MonoBehaviour
 {
     private ScoreManager scoreManager;
-    private void Awake()
+    void Awake()
     {
+   
         scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        
     }
     public void PlayGame()
     {
+        Debug.Log("Loading Scene 1");
         // Load the first level; here '1' assumes your first level is at index 1 in the Build Settings
         SceneManager.LoadSceneAsync(1);
     }
 
     public void NextLevel()
     {
-        // Get the current scene index and load the next one
+        Debug.Log("Attempting to load the next level.");
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadSceneAsync(currentSceneIndex + 1);
+        int nextSceneIndex = currentSceneIndex + 1;
+        Debug.Log($"Current scene index: {currentSceneIndex}, Loading next scene index: {nextSceneIndex}");
+
+        // Restart the current score and time
+        scoreManager.RestartGame();
+        SceneManager.LoadSceneAsync(nextSceneIndex);
     }
 
     public void Restart()
     {
-        // Restart the current level
+        // Restart the current score and time
         scoreManager.RestartGame();
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadSceneAsync(currentSceneIndex);
+        SceneManager.LoadSceneAsync(currentSceneIndex);       
     }
 
     public void ReturnMenu()
     {
+        scoreManager.ReturnMenu();
         // Load the main menu; assumes your main menu is at index 0 in the Build Settings
         SceneManager.LoadSceneAsync(0);
+
     }
 
     public void QuitGame()

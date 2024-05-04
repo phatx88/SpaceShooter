@@ -15,6 +15,11 @@ TagManager:
   - GUI
   - TimeText
   - GameOverPanel
+  - Meteor
+  - SwarmSpawner
+  - SwarmEnemy
+  - PowerUp
+  - PU_DouBullet
   layers:
   - Default
   - TransparentFX
@@ -23,7 +28,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - PowerUp
   - Player
   - Enemy
   - Invulnerable

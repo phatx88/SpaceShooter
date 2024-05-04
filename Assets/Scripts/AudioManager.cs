@@ -9,40 +9,36 @@ public class AudioManager : SingletonPersistent<AudioManager>
     [SerializeField] AudioSource SFXSource;
 
     [Header("---------- Audio Clip ----------")]
-    public AudioClip background;
+    public AudioClip[] backgroundTracks; // Array to hold multiple background tracks
     public AudioClip laserFire_01;
     public AudioClip laserFire_02;
     public AudioClip flipShip;
-    public AudioClip moveShip;
+    public AudioClip swarmDeath;
     public AudioClip death;
+    public AudioClip deathBig;
     public AudioClip mouseClick;
+    public AudioClip powerupCollect;
 
-    // Static variable to hold the instance of the AudioManager
-    //private static AudioManager instance = null;
-
-    //private void Awake()
-    //{
-    //    // Check if instance already exists
-    //    if (instance == null)
-    //    {
-    //        // If not, set instance to this
-    //        instance = this;
-    //        // Make this active and only instance
-    //        DontDestroyOnLoad(gameObject);
-    //    }
-    //    else if (instance != this)
-    //    {
-    //        // If instance already exists and it's not this, then destroy this to enforce the singleton pattern
-    //        Destroy(gameObject);
-    //    }
-    //}
 
     private void Start()
     {
-        musicSource.clip = background;
-        musicSource.Play();
+        PlayRandomBackgroundMusic();
     }
 
+    private void PlayRandomBackgroundMusic()
+    {
+        if (backgroundTracks.Length > 0)
+        {
+            int index = Random.Range(0, backgroundTracks.Length);
+            musicSource.clip = backgroundTracks[index];
+            musicSource.loop = true; // Ensure the music loops
+            musicSource.Play();
+        }
+        else
+        {
+            Debug.LogWarning("No background tracks to play.");
+        }
+    }
     public void PlaySFX(AudioClip clip)
     {
         SFXSource.PlayOneShot(clip);

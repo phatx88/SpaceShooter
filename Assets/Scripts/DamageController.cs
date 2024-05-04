@@ -62,9 +62,14 @@ public class DamageController : MonoBehaviour
     //On Collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger!");
+        //Debug.Log("Trigger!");
 
         #region Trigger Invulnebility
+        if(collision.gameObject.layer == 7)
+        {
+            TriggerInvulnerability(false, maxPlayerInvulPeriod);
+        }
+        else
         TriggerInvulnerability(true, maxPlayerInvulPeriod);
         #endregion
 
@@ -79,9 +84,17 @@ public class DamageController : MonoBehaviour
         if (health <= 0)
         {
             //Play Sound When Targets Health less than equal to zero
-            if (gameObject.tag == "Player" || gameObject.tag == "Enemy")
+            if (gameObject.tag == "Player" || gameObject.tag == "Enemy" || gameObject.tag == "Meteor")
             {
                 audioManager.PlaySFX(audioManager.death);
+            }
+            if (gameObject.tag == "SwarmEnemy")
+            {
+                audioManager.PlaySFX(audioManager.swarmDeath);
+            }
+            if (gameObject.tag == "SwarmSpawner")
+            {
+                audioManager.PlaySFX(audioManager.deathBig);
             }
 
             //Add case to score 
@@ -90,12 +103,12 @@ public class DamageController : MonoBehaviour
                 case "Enemy":
                     scoreManager.scoreIncreasement(10);
                     break;
-                //case "Strong Enemy":
-                //    scoreManager.scoreIncreasement(20);
-                //    break;
-                //case "Asteroid":
-                //    scoreManager.scoreIncreasement(5);
-                //    break;
+                case "SwarmEnemy":
+                    scoreManager.scoreIncreasement(1);
+                    break;
+                case "Meteor":
+                    scoreManager.scoreIncreasement(5);
+                    break;
                 default:
                     // Optional: Handle unexpected tags or do nothing
                     break;
@@ -106,6 +119,7 @@ public class DamageController : MonoBehaviour
 
     void Die()
     {
+        
         Destroy(gameObject);
     }
 
@@ -117,12 +131,17 @@ public class DamageController : MonoBehaviour
         {
             if (takeDamaged)
             {
-            health--; //Take damage if with out Invulnaripity period
+
+                health--; //Take damage if with out Invulnaripity period
+             
 
                 if (gameObject.tag == "Player")
                 {
                 healthBar.SetHealth(health); // Show Reduced HealthBar
                 }
+
+
+                //ADD PowerUp Functionality
             }
 
             invulnTimer = maxTimer; //call timer for invulnable 

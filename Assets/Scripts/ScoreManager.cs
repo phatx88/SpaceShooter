@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ScoreManager : SingletonPersistent<ScoreManager>
+public class ScoreManager : MonoBehaviour
 {
     private int score = 0;
     public float timeRemaining = 60f;
@@ -18,35 +18,19 @@ public class ScoreManager : SingletonPersistent<ScoreManager>
     private List<TextMeshProUGUI> scoreTexts = new List<TextMeshProUGUI>();
     private TextMeshProUGUI TimeText;
 
-    private void Awake()
+    //Reference to GameManager
+    GameManager gameManager;
+
+    void Awake()
     {
-        //// Check if instance already exists
-        //if (instance == null)
-        //{
-        //    // If not, set instance to this
-        //    instance = this;
-        //    // Make this the active and only instance
-        //    DontDestroyOnLoad(gameObject);
+        // Calls the base class's Awake to handle singleton setup
+        gameManager = GameManager.Instance;
+        InitializeUIComponents();
+    }
 
-            scorePanel = GameObject.FindGameObjectWithTag("ScorePanel");
-            if (scorePanel != null)
-            {
-                scorePanelGroup = scorePanel.GetComponent<CanvasGroup>();
-                HidePanel(); // Initially hide the panel.
-            }
-
-                // Initialize the Time Text reference
-                TimeText = GameObject.FindGameObjectWithTag("TimeText").GetComponent<TextMeshProUGUI>();
-
-                // Initialize the Time Text reference
-                InitializeScoreText();
-
-        //}
-        //else if (instance != this)
-        //{
-        //    // If instance already exists and it's not this, then destroy this to enforce the singleton pattern
-        //    Destroy(gameObject);
-        //}
+    private void Start()
+    {
+        
     }
 
     private void Update()
@@ -68,6 +52,22 @@ public class ScoreManager : SingletonPersistent<ScoreManager>
         }
     }
 
+    public void InitializeUIComponents()
+    {
+        scorePanel = GameObject.FindGameObjectWithTag("ScorePanel");
+        if (scorePanel != null)
+        {
+            scorePanelGroup = scorePanel.GetComponent<CanvasGroup>();
+            HidePanel(); // Initially hide the panel.
+        }
+
+        // Initialize the Time Text reference
+        TimeText = GameObject.FindGameObjectWithTag("TimeText").GetComponent<TextMeshProUGUI>();
+
+        // Initialize the Time Text reference
+        InitializeScoreText();
+    }
+
     private void InitializeScoreText()
     {
         var scoreTextObjects = GameObject.FindGameObjectsWithTag("ScoreText");
@@ -87,16 +87,19 @@ public class ScoreManager : SingletonPersistent<ScoreManager>
 
     private void UpdateScoreDisplay()
     {
+
         foreach (var text in scoreTexts)
         {
             if (text != null)
-                text.text = "Score: " + score;
+                text.text = $"Total Score: {gameManager.GetTotalScore()}\nKills: {gameManager.GetTotalKills()}";
         }
     }
 
     public void scoreIncreasement(int add)
     {
         score += add;
+        gameManager.AddTotalScore(add);
+        gameManager.AddKillCount(1);
         // Optionally update the score display in real-time if needed
         UpdateScoreDisplay();
     }
@@ -144,6 +147,12 @@ public class ScoreManager : SingletonPersistent<ScoreManager>
         // Any other resets needed (e.g., player health, position)
         // PlayerHealth.ResetHealth();
 
+        // Optionally hide the score panel if needed
+        HidePanel();
+    }
+
+    public void ReturnMenu()
+    {
         // Optionally hide the score panel if needed
         HidePanel();
     }
