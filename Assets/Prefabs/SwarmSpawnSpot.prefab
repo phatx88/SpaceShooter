@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3515974128501366063}
   - component: {fileID: 3515974128501366061}
   - component: {fileID: 3515974128501366062}
+  - component: {fileID: 5628927675658544162}
   m_Layer: 9
   m_Name: SwarmSpawnSpot
   m_TagString: SwarmSpawner
@@ -261,6 +262,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5628927675658544162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3515974128501366059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d6a968c90fad442ac971e4996a35ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsToSpawn:
+  - {fileID: 1899765409725975442, guid: edc19cd689be5c04e9af433704758a6c, type: 3}
+  - {fileID: 1899765409725975442, guid: 550bdb5af241a1f4eb9eb33585a48af8, type: 3}
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &5956120497720790213
 PrefabInstance:
   m_ObjectHideFlags: 0

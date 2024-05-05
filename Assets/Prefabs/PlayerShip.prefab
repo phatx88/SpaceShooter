@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 4411614201396453060}
   - component: {fileID: 7286689259987682621}
   - component: {fileID: 3046597962696066588}
+  - component: {fileID: 8907578454924928557}
   m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Player
@@ -287,6 +288,23 @@ PolygonCollider2D:
       - {x: 0.39265245, y: -0.114352375}
       - {x: 0.46463352, y: -0.126259}
       - {x: 0.4784456, y: 0.22282569}
+--- !u!114 &8907578454924928557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581954610755074955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeae62049bb65f4cb7d64e1923e3d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missilePrefab: {fileID: 7304949771451975156, guid: fe32b5bf22694ca40963a37808e2270b, type: 3}
+  missileOffset: {x: 0, y: 0.5, z: 0}
+  barrageCount: 36
+  fireDelay: 0.1
+  missileCooldown: 5
 --- !u!1001 &2802044268874279578
 PrefabInstance:
   m_ObjectHideFlags: 0

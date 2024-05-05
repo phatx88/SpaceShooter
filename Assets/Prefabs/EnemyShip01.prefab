@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 8839272801989919181}
   - component: {fileID: -6946022951291199963}
   - component: {fileID: 5627155665539697797}
+  - component: {fileID: 7553681918825622606}
   m_Layer: 9
   m_Name: EnemyShip01
   m_TagString: Enemy
@@ -301,6 +302,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7553681918825622606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899765409725975442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d6a968c90fad442ac971e4996a35ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsToSpawn:
+  - {fileID: 1899765409725975442, guid: edc19cd689be5c04e9af433704758a6c, type: 3}
+  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &638656664820690263
 PrefabInstance:
   m_ObjectHideFlags: 0

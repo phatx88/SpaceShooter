@@ -503,6 +503,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PU_missile
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 436
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a219779ea3db614fafef57e0722c738
+      internalID: -1645328052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -525,6 +546,7 @@ TextureImporter:
       Meteor_01: -1301213186
       Meteor_02: -1976420889
       Missile_01: -109672895
+      PU_missile: -1645328052
       PlayerShip: -1526636341
       Power_up_01: -731822563
       Power_up_02: 675819673

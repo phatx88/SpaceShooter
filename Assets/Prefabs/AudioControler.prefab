@@ -326,5 +326,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: f8cab9ed881c12249b7c8b4795964bdd, type: 3}
   - name: PU_Collect
     clip: {fileID: 8300000, guid: 80a7d06821307fb4dbe1807f54db5e5e, type: 3}
+  - name: PU_Missile
+    clip: {fileID: 8300000, guid: bb8051345a654ac41865d603c3925cfa, type: 3}
+  - name: Missile
+    clip: {fileID: 8300000, guid: 1ddf5228843cfcd48ba4a7256a400f2c, type: 3}
+  - name: Missile_Launch
+    clip: {fileID: 8300000, guid: fc698d421757cc14da009baa5d46a970, type: 3}
   musicSource: {fileID: 6376153162731924463}
   sfxSource: {fileID: 4629138155942502025}

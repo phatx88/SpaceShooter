@@ -5,7 +5,6 @@ public class PowerUpController : MonoBehaviour
     public int health = 1;
 
     
-
     private void Awake()
     {
     }

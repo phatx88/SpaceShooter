@@ -20,6 +20,9 @@ TagManager:
   - SwarmEnemy
   - PowerUp
   - PU_DouBullet
+  - Missile
+  - PU_Missile
+  - BulletUI
   layers:
   - Default
   - TransparentFX
