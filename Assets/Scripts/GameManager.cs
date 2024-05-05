@@ -1,21 +1,20 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonPersistent<GameManager>
 {
     private float totalPlayTime = 0;
     private int totalScore = 0;
     private int killCount = 0;
-    // Start is called before the first frame update
-    // Start is called before the first frame update
+    private List<GameObject> managedObjects = new List<GameObject>();
+
     void Start()
     {
         // Optionally load saved playtime if needed
         LoadPlayTime();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Increment the total play time by the time passed since the last frame
@@ -37,6 +36,16 @@ public class GameManager : SingletonPersistent<GameManager>
         }
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
     private void SavePlayTime()
     {
         // Save totalPlayTime to PlayerPrefs or a file
@@ -52,14 +61,17 @@ public class GameManager : SingletonPersistent<GameManager>
             totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime");
         }
     }
+
     public void AddTotalScore(int add)
     {
         totalScore += add;
     }
+
     public void AddKillCount(int add)
     {
         killCount += add;
     }
+
     public int GetTotalScore()
     {
         return totalScore;
@@ -69,10 +81,36 @@ public class GameManager : SingletonPersistent<GameManager>
     {
         return killCount;
     }
-    //Create Gameobject through Instance
+
     public void CreateObject(GameObject prefab, Vector3 position)
     {
-        Instantiate(prefab, position, Quaternion.identity);
+        CreateObject(prefab, position, Quaternion.identity);
     }
 
+    public void CreateObject(GameObject prefab, Vector3 position, Quaternion rotation)
+    {
+        if (prefab != null)
+        {
+            GameObject newObj = Instantiate(prefab, position, rotation);
+            managedObjects.Add(newObj);
+        }
+    }
+
+    private void OnSceneUnloaded(Scene current)
+    {
+        CleanUpManagedObjects();
+    }
+
+    public void CleanUpManagedObjects()
+    {
+        foreach (GameObject obj in managedObjects)
+        {
+            if (obj != null)
+            {
+                Destroy(obj);
+            }
+        }
+
+        managedObjects.Clear();
+    }
 }

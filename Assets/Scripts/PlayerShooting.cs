@@ -56,10 +56,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PlayerShooting : MonoBehaviour
 {
     public Vector3 bulletOffset = new Vector3(0, 0.5f, 0);
@@ -71,17 +67,15 @@ public class PlayerShooting : MonoBehaviour
     float fireDelay = 0.25f;
     float cooldownTimer = 0;
 
-    AudioManager audioManager;
 
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         bulletLayer = gameObject.layer;
     }
 
     void Update()
     {
-        cooldownTimer -= Time.deltaTime;
+        cooldownTimer -= Time.deltaTime;  //thay the bang start couroutine 
 
         if (Input.GetButton("Fire1") && cooldownTimer <= 0)
         {
@@ -105,7 +99,7 @@ public class PlayerShooting : MonoBehaviour
             }
         }
 
-        audioManager.PlaySFX(audioManager.laserFire_01);
+        AudioControler.Instance.PlaySFX("Laser_01");
     }
 
     void InstantiateBullet(float angle)

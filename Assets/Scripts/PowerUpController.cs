@@ -4,11 +4,10 @@ public class PowerUpController : MonoBehaviour
 {
     public int health = 1;
 
-    AudioManager audioManager;
+    
 
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -19,7 +18,7 @@ public class PowerUpController : MonoBehaviour
             if (playerShooting != null)
             {
                 playerShooting.AddPowerup();
-                audioManager.PlaySFX(audioManager.powerupCollect); // Assuming you have this SFX
+                AudioControler.Instance.PlaySFX("PU_Collect");
             }
             Destroy(gameObject);
         }

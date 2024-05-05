@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour
 {
+    [SerializeField] private ExplodeAnimation explodeAnimation;
+    [SerializeField] private GameObject graphicGO;
     public int health = 1;
     public int maxPlayerHealth = 3;
 
@@ -14,10 +16,11 @@ public class DamageController : MonoBehaviour
     float invulnTimer = 0;
     int correctLayer;
 
+    private bool isRunAnimation = false;
+
+
     SpriteRenderer spriteRend;
 
-    //Add Audio
-    AudioManager audioManager;
 
     //Add-update HealthBar UI
     HealthBar healthBar;
@@ -26,7 +29,6 @@ public class DamageController : MonoBehaviour
     ScoreManager scoreManager;
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         healthBar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<HealthBar>();
         scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
     }
@@ -46,16 +48,18 @@ public class DamageController : MonoBehaviour
         }
 
         //Get the renderer, Only work on Parent not the chidren
-        spriteRend = GetComponent<SpriteRenderer>();
-
-        if(spriteRend == null)
+        if (graphicGO != null)
         {
-            //Get the renderer of the childre
-            spriteRend = GetComponentInChildren<SpriteRenderer>();
+            spriteRend = graphicGO.GetComponent<SpriteRenderer>();
+            //Get the renderer 
             if(spriteRend == null)
             {
             Debug.Log("Object '"+gameObject.name+"' has no sprite rendered.");
             }
+        }
+        else
+        {
+            Debug.LogWarning("Graphic GameObject reference is not assigned for " + gameObject.name);
         }
     }
 
@@ -80,51 +84,36 @@ public class DamageController : MonoBehaviour
         //Update Invulnerability and reset
         HandleInvulnerability();
             
-       //Destroy gameobject if its health go to 0
-        if (health <= 0)
-        {
-            //Play Sound When Targets Health less than equal to zero
-            if (gameObject.tag == "Player" || gameObject.tag == "Enemy" || gameObject.tag == "Meteor")
-            {
-                audioManager.PlaySFX(audioManager.death);
-            }
-            if (gameObject.tag == "SwarmEnemy")
-            {
-                audioManager.PlaySFX(audioManager.swarmDeath);
-            }
-            if (gameObject.tag == "SwarmSpawner")
-            {
-                audioManager.PlaySFX(audioManager.deathBig);
-            }
-
-            //Add case to score 
-            switch (gameObject.tag)
-            {
-                case "Enemy":
-                    scoreManager.scoreIncreasement(10);
-                    break;
-                case "SwarmEnemy":
-                    scoreManager.scoreIncreasement(1);
-                    break;
-                case "Meteor":
-                    scoreManager.scoreIncreasement(5);
-                    break;
-                default:
-                    // Optional: Handle unexpected tags or do nothing
-                    break;
-            }
-            Die();
-        }
+        
     }
 
-    void Die()
+    public IEnumerator Die()
     {
+        PlaySound(); //Get Sound
+
+        AddScore(); //Get Score
+
+
+        if (graphicGO != null)
+        {
+            graphicGO.SetActive(false);
+
+            if (isRunAnimation == false)
+            {
+                explodeAnimation.RunAnimation();
+                isRunAnimation = true;
+            }
+            yield return new WaitForSeconds(1f);
+        }
         
+
         Destroy(gameObject);
     }
 
+
+
     #region Trigger & Handle Invulnerability
-    public void TriggerInvulnerability(bool takeDamaged, float maxTimer)
+    public void TriggerInvulnerability(bool takeDamaged, float maxPlayerInvulPeriod)
     {
         //Add so that Player become temporary invulnerable upon collision 
         if (invulnTimer <= 0)
@@ -133,18 +122,21 @@ public class DamageController : MonoBehaviour
             {
 
                 health--; //Take damage if with out Invulnaripity period
-             
+                
+                if (health <= 0)
+                {                 
+                    
+                    StartCoroutine(Die());
+                }
 
                 if (gameObject.tag == "Player")
                 {
                 healthBar.SetHealth(health); // Show Reduced HealthBar
                 }
 
-
-                //ADD PowerUp Functionality
             }
 
-            invulnTimer = maxTimer; //call timer for invulnable 
+            invulnTimer = maxPlayerInvulPeriod; //assign timer for invulnable 
 
             gameObject.layer = 10; //change to invulnable 
         }
@@ -155,16 +147,52 @@ public class DamageController : MonoBehaviour
         {
             invulnTimer -= Time.deltaTime;
 
-            if (invulnTimer <= 0)
+            if (invulnTimer <= 0 && spriteRend != null)
             {
                 gameObject.layer = correctLayer; // Restore original layer
                 spriteRend.enabled = true; // Make sure sprite is visible when not invulnerable
             }
-            else
+            else if (spriteRend != null)
             {
                 spriteRend.enabled = !spriteRend.enabled; // Blink effect for invulnerability
             }
         }
     }
     #endregion
+    void PlaySound()
+    {
+        //Play Sound When Targets Health less than equal to zero
+        if (gameObject.tag == "Player" || gameObject.tag == "Enemy" || gameObject.tag == "Meteor")
+        {
+            AudioControler.Instance.PlaySFX("Death");
+        }
+        if (gameObject.tag == "SwarmEnemy")
+        {
+            AudioControler.Instance.PlaySFX("SwarmDeath");
+        }
+        if (gameObject.tag == "SwarmSpawner")
+        {
+            AudioControler.Instance.PlaySFX("DeathBig");
+        }
+    }
+
+    void AddScore()
+    {
+        //Add case to score 
+        switch (gameObject.tag)
+        {
+            case "Enemy":
+                scoreManager.scoreIncreasement(10);
+                break;
+            case "SwarmEnemy":
+                scoreManager.scoreIncreasement(1);
+                break;
+            case "Meteor":
+                scoreManager.scoreIncreasement(5);
+                break;
+            default:
+                // Optional: Handle unexpected tags or do nothing
+                break;
+        }
+    }
 }

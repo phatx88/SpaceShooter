@@ -8,8 +8,12 @@ public class MainMenu : MonoBehaviour
     private ScoreManager scoreManager;
     void Awake()
     {
-   
-        scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        if (scoreManager == null)
+        {
+            scoreManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>();
+        }
+        else
+            Debug.Log("can't find object scoreManager");
         
     }
     public void PlayGame()

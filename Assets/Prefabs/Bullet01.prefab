@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1c490b17ea0bf41ba5c779700b64a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeAnimation: {fileID: 0}
+  graphicGO: {fileID: 0}
   health: 1
   maxPlayerHealth: 3
   invulnPeriod: 0
@@ -177,4 +179,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897d65ded195aa8479f0f8a9a25d9b95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 5
+  timer: 2

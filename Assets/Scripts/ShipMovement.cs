@@ -10,14 +10,13 @@ public class ShipMovement : MonoBehaviour
 
     private float lastFlipTime = -Mathf.Infinity; // Track the last time the ship flipped
 
-    //Add Audio
-    AudioManager audioManager;
+
 
     //Add Invulnerability to flip 
     DamageController damageController;
     private void Awake()
     {
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
         damageController = GameObject.FindGameObjectWithTag("Player").GetComponent<DamageController>();
     }
 
@@ -42,7 +41,7 @@ public class ShipMovement : MonoBehaviour
             StartCoroutine(FlipShip());
             lastFlipTime = Time.time; // Update the last flip time
             damageController.TriggerInvulnerability(false, 1f); //Set false to avoid reduce Health
-            audioManager.PlaySFX(audioManager.flipShip); //Add Flip sound
+            AudioControler.Instance.PlaySFX("FlipShip"); //Add Flip sound
         }
 
 
@@ -116,15 +115,7 @@ public class ShipMovement : MonoBehaviour
     }
 
     #region ADDING Flip Ability
-    //private void FlipShip()
-    //{
-    //    // Add 180 degrees to the current rotation on the Z-axis
-    //    Quaternion rot = transform.rotation;
-    //    float z = rot.eulerAngles.z + 180f;
-    //    rot = Quaternion.Euler(0, 0, z);
-    //    transform.rotation = rot;
-    //}
-    
+
     private IEnumerator FlipShip()
     {
         // Get the current rotation and scale of the ship

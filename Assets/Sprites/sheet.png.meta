@@ -470,7 +470,7 @@ TextureImporter:
         width: 9
         height: 36
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -478,6 +478,27 @@ TextureImporter:
       bones: []
       spriteID: b514a4efbc71f1f4ea33e698d344d44c
       internalID: -390235553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Missile_01
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 696
+        width: 12
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95682d76050c9b442a10ee61612250ae
+      internalID: -109672895
       vertices: []
       indices: 
       edges: []
@@ -503,6 +524,7 @@ TextureImporter:
       Enemy_05: 910883810
       Meteor_01: -1301213186
       Meteor_02: -1976420889
+      Missile_01: -109672895
       PlayerShip: -1526636341
       Power_up_01: -731822563
       Power_up_02: 675819673

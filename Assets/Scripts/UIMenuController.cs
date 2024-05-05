@@ -7,12 +7,10 @@ public class UIMenuController : MonoBehaviour
     public Button[] restartButtons;
     public Button[] menuButtons;
 
-    private AudioManager audioManager;
+
 
     void Start()
     {
-        // Ensure AudioManager instance is available
-        audioManager = AudioManager.Instance;
         SetupButtonListeners();
     }
 
@@ -38,8 +36,8 @@ public class UIMenuController : MonoBehaviour
     private void PlayButtonClickSound()
     {
         // Play the mouse click sound effect
-        if (audioManager != null)
-            audioManager.PlaySFX(audioManager.mouseClick);
+        if (AudioControler.Instance != null)
+            AudioControler.Instance.PlaySFX("MouseClick");
         else
             Debug.LogError("AudioManager not found!");
     }

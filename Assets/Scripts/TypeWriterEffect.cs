@@ -4,16 +4,14 @@ using UnityEngine;
 using TMPro;
 
 [RequireComponent(typeof(TMP_Text))]
-
 public class TypeWriterEffect : MonoBehaviour
 {
-
     private TMP_Text _textBox;
-    //Only fo prototyping
+    // Only for prototyping
     [Header("Test String")]
     [SerializeField] private string testText;
 
-    //Basic Typewritr Functionality
+    // Basic Typewriter Functionality
     private int _currentVisibleCharacterIndex;
     private Coroutine _typewriterCoroutine;
 
@@ -23,7 +21,6 @@ public class TypeWriterEffect : MonoBehaviour
     [Header("Typewriter Settings")]
     [SerializeField] private float charactersPerSecond = 20;
     [SerializeField] private float interpunctuationDelay = 0.5f;
-
 
     private void Awake()
     {
@@ -44,6 +41,7 @@ public class TypeWriterEffect : MonoBehaviour
             StopCoroutine(_typewriterCoroutine);
 
         _textBox.text = text;
+        _textBox.ForceMeshUpdate(); // Update the text mesh to reflect the new text
         _textBox.maxVisibleCharacters = 0;
         _currentVisibleCharacterIndex = 0;
 
@@ -54,20 +52,14 @@ public class TypeWriterEffect : MonoBehaviour
     {
         TMP_TextInfo textInfo = _textBox.textInfo;
 
-        while(_currentVisibleCharacterIndex < textInfo.characterCount + 1)
+        while (_currentVisibleCharacterIndex < textInfo.characterCount)
         {
-
-
-
-
-
             char character = textInfo.characterInfo[_currentVisibleCharacterIndex].character;
 
             _textBox.maxVisibleCharacters++;
 
-            if(
-                (character == '?' || character == '.' || character == ',' || character == ':' ||
-                 character == ';' || character == '!' || character == '-'))
+            if (character == '?' || character == '.' || character == ',' || character == ':' ||
+                character == ';' || character == '!' || character == '-')
             {
                 yield return _interpunctuationDelay;
             }
