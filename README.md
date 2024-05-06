@@ -41,7 +41,7 @@ Unity 2D SpaceShoot Project, features:
    - Game có 3 levels 
    - Mỗi level sẽ có thêm kẻ địch và các item Power Ups.
 12) Hiệu ứng nổ khi có va chạm hoặc trúng đạn
-   - ![pngegg](https://github.com/phatx88/SpaceShooter/assets/66936482/1e3509d9-4c2a-4229-a738-24d60dbc14d6)
+   - <img width="445" alt="SS_demo_01" src="https://github.com/phatx88/SpaceShooter/assets/66936482/1e3509d9-4c2a-4229-a738-24d60dbc14d6">
    - Thực hiện animation cho tất cả collision.
 13) Nhân vật có nhiều mạng (lượt chơi) và Bảng kết quả trò chơi, ghi lại số điểm mỗi lượt chơi và tổng điểm các lượt.
    - Player có 3 lives mỗi màn.
