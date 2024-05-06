@@ -54,6 +54,7 @@ Unity 2D SpaceShoot Project, features:
 15) Nhặt Power-ups đạn nhiều góc bay cùng lúc
    - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/c24f0e0c-f76a-4d36-b4d5-f5e9672be4f3" width="15" /> cho phép player bắn thêm 1 góc bay
    - Có tất cả là 16 Power Ups tương đương với 16 góc bay.
+   - <img width="445" alt="SS_demo_01" src="https://github.com/phatx88/SpaceShooter/assets/66936482/db735fc9-f93a-4425-b1c0-9ab602bd0bd0">
    - Có thể tăng hay giảm Max Power Ups
 16) Nhặt Power-ups đạn song song nhiều hàng
 17) Nhặt Power-ups đạn truy vết (Khó)
