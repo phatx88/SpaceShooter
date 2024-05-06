@@ -25,6 +25,7 @@ Unity 2D SpaceShoot Project, features:
 7) Giao diện UI trước khi game bắt đầu và thông báo trong game
    - Màn hình Main Menu để Start Game hoặc Options(WIP).
    - Thông báo trong game (hint).
+   - <img width="438" alt="SS_demo_06" src="https://github.com/phatx88/SpaceShooter/assets/66936482/4211ec90-ba0c-4f07-b289-205c8b919770">
 8) Máy bay địch chết khi trúng đạn và cộng điểm cho người chơi
    - Cộng điểm tùy theo dạng quân địch.
    -  <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/4dd0eec6-00b6-43b2-87b9-8f47440ced8a" width="25" /> : +10 điểm
