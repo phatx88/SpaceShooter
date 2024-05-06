@@ -6,8 +6,8 @@ Unity 2D SpaceShoot Project, features:
    - Cho phép máy di chuyển lên xuống (vertical) và xoay đầu (Horizontal).
    - Camera sẽ chạy theo PlayerShip. 
 3) Sinh ra máy bay kẻ thù hoặc các định dạng kẻ thù ở vị trí ngẫu nhiên theo khoảng thời gian hoặc dựa trên các kích hoạt cụ thể.
-   - Kẻ thù EnemyShips : <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/4dd0eec6-00b6-43b2-87b9-8f47440ced8a" width="25" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/bd8df46d-6c1d-4993-80a5-3f9d1aca5717" width="25" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/1bc885b1-56c6-414c-87e3-f68f270d4681" width="25" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/3a9f62b4-b3de-4608-9f56-0de360a850cc" width="25" /> , <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/8357019b-bece-4c47-92a6-754f694a3e05" width="25" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/366e3699-9882-476d-8eda-e2519b6ecef4" width="10" /> .
-   - Kẻ thù Meteors : <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/69eaa0c3-1ae3-406f-b2b1-fab64dcd77de" width="25" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/14bbb46b-5b7c-4181-bd00-dedfcb2d09c7" width="25" /> .
+   - Kẻ thù EnemyShips : <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/4dd0eec6-00b6-43b2-87b9-8f47440ced8a" width="25" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/bd8df46d-6c1d-4993-80a5-3f9d1aca5717" width="25" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/1bc885b1-56c6-414c-87e3-f68f270d4681" width="25" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/3a9f62b4-b3de-4608-9f56-0de360a850cc" width="25" /> , <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/8357019b-bece-4c47-92a6-754f694a3e05" width="25" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/366e3699-9882-476d-8eda-e2519b6ecef4" width="15" /> .
+   - Kẻ thù Meteors : <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/69eaa0c3-1ae3-406f-b2b1-fab64dcd77de" width="15" />, <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/14bbb46b-5b7c-4181-bd00-dedfcb2d09c7" width="25" /> .
    - Spawn location cho từng kẻ thù sẽ spawn ngoài màn hình, kẻ thù được lập trình để tiến về phía người chơi, hoặc chạy random.
    - Kẻ thù spawn theo thời gian được chọn và nhanh dần lên theo thời gian.
    - Khi Không còn người chơi spawnlocation sẽ ngưng spawn kẻ thù, kẻ thù còn lại sẽ tự xóa đi.
@@ -48,8 +48,16 @@ Unity 2D SpaceShoot Project, features:
    - Khi hết thời gian, Panel Next level sẽ hiện ra, hiển thị tổng điểm các lượt chơi (total score) và kill counts (Total Kills).
    - Nếu player bị giết, Gameover Panel sẽ hiện ra.
 14) Tái hiện một đội quân địch như tựa game classic (Theo một hay nhiều hàng)
-   - 
+   - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/366e3699-9882-476d-8eda-e2519b6ecef4" width="15" /> : sẽ xuất hiện như đội hình classic (Pyramid Formation - có thể tùy chỉnh 1 hay nhiều hàng).
+   - Tiêu diệt Spammer <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/b7af6816-5627-42f5-8027-6f0e59d2be43" width="25" />
+ sẽ kích hoạt self desctruct cho tất cả <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/366e3699-9882-476d-8eda-e2519b6ecef4" width="15" /> con.
 15) Nhặt Power-ups đạn nhiều góc bay cùng lúc
+   - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/c24f0e0c-f76a-4d36-b4d5-f5e9672be4f3" width="15" /> cho phép playr bắn thêm 1 góc bay
+   - Có tất cả là 16 Power Ups tương đương với 16 góc bay.
+   - Có thể tăng hay giảm Max Power Ups
 16) Nhặt Power-ups đạn song song nhiều hàng
 17) Nhặt Power-ups đạn truy vết (Khó)
+   - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/4860559c-b437-4d12-97a8-2548586b602c" width="15" /> cho phép playr bắn 1 Missile Barrage bao gồm 36 Missiles (có thể tùy chỉnh tốc độ và góc quay).
+   - Đạn Missile  <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/06c74d8a-922d-45ce-ace0-9234e560535d" width="15" /> sẽ truy tìm kẻ thù mang tag "Enemy" gần nhất.
+
 
