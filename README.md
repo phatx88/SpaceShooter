@@ -54,11 +54,12 @@ Unity 2D SpaceShoot Project, features:
 15) Nhặt Power-ups đạn nhiều góc bay cùng lúc
    - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/c24f0e0c-f76a-4d36-b4d5-f5e9672be4f3" width="15" /> cho phép player bắn thêm 1 góc bay
    - Có tất cả là 16 Power Ups tương đương với 16 góc bay.
-   - <img width="445" alt="SS_demo_01" src="https://github.com/phatx88/SpaceShooter/assets/66936482/db735fc9-f93a-4425-b1c0-9ab602bd0bd0">
    - Có thể tăng hay giảm Max Power Ups
+   - <img width="445" alt="SS_demo_01" src="https://github.com/phatx88/SpaceShooter/assets/66936482/db735fc9-f93a-4425-b1c0-9ab602bd0bd0">
 16) Nhặt Power-ups đạn song song nhiều hàng
 17) Nhặt Power-ups đạn truy vết (Khó)
    - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/4860559c-b437-4d12-97a8-2548586b602c" width="15" /> cho phép player bắn 1 Missile Barrage bao gồm 36 Missiles (có thể tùy chỉnh tốc độ và góc quay).
    - Đạn Missile  <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/06c74d8a-922d-45ce-ace0-9234e560535d" width="10" /> sẽ truy tìm kẻ thù mang tag "Enemy" gần nhất.
+   - <img width="451" alt="SS_demo_03" src="https://github.com/phatx88/SpaceShooter/assets/66936482/879819e0-c355-4d42-8425-6dbb912fc87b">
 
 
