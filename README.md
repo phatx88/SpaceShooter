@@ -57,6 +57,9 @@ Unity 2D SpaceShoot Project, features:
    - Có thể tăng hay giảm Max Power Ups
    - <img width="445" alt="SS_demo_01" src="https://github.com/phatx88/SpaceShooter/assets/66936482/db735fc9-f93a-4425-b1c0-9ab602bd0bd0">
 16) Nhặt Power-ups đạn song song nhiều hàng
+   - Tạo ra đạn bắn dạng beam có thể "quét" theo góc quay của Player
+   - đạn kích hoạt khi nhặt power up
+   - <img width="446" alt="SS_demo_05" src="https://github.com/phatx88/SpaceShooter/assets/66936482/98f326e7-65d1-4e9f-a515-d5e38deb8c39">
 17) Nhặt Power-ups đạn truy vết (Khó)
    - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/4860559c-b437-4d12-97a8-2548586b602c" width="15" /> cho phép player bắn 1 Missile Barrage bao gồm 36 Missiles (có thể tùy chỉnh tốc độ và góc quay).
    - Đạn Missile  <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/06c74d8a-922d-45ce-ace0-9234e560535d" width="10" /> sẽ truy tìm kẻ thù mang tag "Enemy" gần nhất.
