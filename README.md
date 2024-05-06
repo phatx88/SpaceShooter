@@ -52,12 +52,12 @@ Unity 2D SpaceShoot Project, features:
    - Tiêu diệt Spammer <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/b7af6816-5627-42f5-8027-6f0e59d2be43" width="25" />
  sẽ kích hoạt self desctruct cho tất cả <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/366e3699-9882-476d-8eda-e2519b6ecef4" width="15" /> con.
 15) Nhặt Power-ups đạn nhiều góc bay cùng lúc
-   - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/c24f0e0c-f76a-4d36-b4d5-f5e9672be4f3" width="15" /> cho phép playr bắn thêm 1 góc bay
+   - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/c24f0e0c-f76a-4d36-b4d5-f5e9672be4f3" width="15" /> cho phép player bắn thêm 1 góc bay
    - Có tất cả là 16 Power Ups tương đương với 16 góc bay.
    - Có thể tăng hay giảm Max Power Ups
 16) Nhặt Power-ups đạn song song nhiều hàng
 17) Nhặt Power-ups đạn truy vết (Khó)
-   - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/4860559c-b437-4d12-97a8-2548586b602c" width="15" /> cho phép playr bắn 1 Missile Barrage bao gồm 36 Missiles (có thể tùy chỉnh tốc độ và góc quay).
-   - Đạn Missile  <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/06c74d8a-922d-45ce-ace0-9234e560535d" width="15" /> sẽ truy tìm kẻ thù mang tag "Enemy" gần nhất.
+   - <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/4860559c-b437-4d12-97a8-2548586b602c" width="15" /> cho phép player bắn 1 Missile Barrage bao gồm 36 Missiles (có thể tùy chỉnh tốc độ và góc quay).
+   - Đạn Missile  <img src="https://github.com/phatx88/SpaceShooter/assets/66936482/06c74d8a-922d-45ce-ace0-9234e560535d" width="10" /> sẽ truy tìm kẻ thù mang tag "Enemy" gần nhất.
 
 
