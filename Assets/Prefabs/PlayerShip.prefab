@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 7286689259987682621}
   - component: {fileID: 3046597962696066588}
   - component: {fileID: 8907578454924928557}
+  - component: {fileID: 1945845629250229483}
+  - component: {fileID: 7103755677674416543}
   m_Layer: 8
   m_Name: PlayerShip
   m_TagString: Player
@@ -305,6 +307,37 @@ MonoBehaviour:
   barrageCount: 36
   fireDelay: 0.1
   missileCooldown: 5
+--- !u!114 &1945845629250229483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581954610755074955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d6a968c90fad442ac971e4996a35ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabsToSpawn:
+  - {fileID: 1899765409725975442, guid: e9850407fb5bf714fa4a413a77174827, type: 3}
+  spawnOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &7103755677674416543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581954610755074955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9da4c5e8fafe784b845bb562e73728c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserBeamPrefab: {fileID: 7304949771451975156, guid: b188b79e7fe558344a2af2887b79fd04, type: 3}
+  laserOffset: {x: 0, y: 1.75, z: 0}
+  laserDuration: 9
+  scalingDuration: 2
 --- !u!1001 &2802044268874279578
 PrefabInstance:
   m_ObjectHideFlags: 0

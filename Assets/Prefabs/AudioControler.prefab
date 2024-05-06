@@ -332,5 +332,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1ddf5228843cfcd48ba4a7256a400f2c, type: 3}
   - name: Missile_Launch
     clip: {fileID: 8300000, guid: fc698d421757cc14da009baa5d46a970, type: 3}
+  - name: Laser_Beam
+    clip: {fileID: 8300000, guid: 630b33e121a819846aa80078142bf703, type: 3}
   musicSource: {fileID: 6376153162731924463}
   sfxSource: {fileID: 4629138155942502025}

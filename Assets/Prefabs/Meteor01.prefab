@@ -316,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabsToSpawn:
   - {fileID: 1899765409725975442, guid: edc19cd689be5c04e9af433704758a6c, type: 3}
+  - {fileID: 1899765409725975442, guid: 0a2cbf15f6837c9438e2f51b97199790, type: 3}
   - {fileID: 1899765409725975442, guid: 550bdb5af241a1f4eb9eb33585a48af8, type: 3}
   spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &327691678794206556

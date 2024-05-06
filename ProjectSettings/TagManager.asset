@@ -23,6 +23,7 @@ TagManager:
   - Missile
   - PU_Missile
   - BulletUI
+  - PU_BeamBullet
   layers:
   - Default
   - TransparentFX

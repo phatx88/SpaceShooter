@@ -524,6 +524,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Debris_01
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 793
+        width: 98
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77836ad0aa651674e803dabc743024f4
+      internalID: -409978240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Beam
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 761
+        width: 13
+        height: 57
+      alignment: 9
+      pivot: {x: 0.5031175, y: -0.0037745426}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a7bf2b9aaa8d24b836125fd1d6562c
+      internalID: -42263535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -538,6 +580,8 @@ TextureImporter:
       Bullet_01: -2023724924
       Bullet_02: 1687341211
       Bullet_03: -390235553
+      Bullet_Beam: -42263535
+      Debris_01: -409978240
       EnemyShip_01: -2121328532
       Enemy_02: 1990485392
       Enemy_03: 1680564422
